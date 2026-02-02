@@ -1,42 +1,30 @@
-# sv
+# Teacher Portal
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Small SvelteKit app to log in a teacher, add students, view them, and edit their details.
 
-## Creating a project
+## Stack
+- SvelteKit 2 with runes
+- Tailwind CSS + Flowbite components
+- Drizzle ORM (better-sqlite3)
+- SQLite (`local.db`)
 
-If you're seeing this, you've probably already done this step. Congrats!
-
+## Setup
 ```sh
-# create a new project
-npx sv create my-app
+pnpm install
+pnpm dev
 ```
 
-To recreate this project with the same configuration:
+## Usage
+- **Login**: Go to `/logged-out/login` and sign in as the seeded teacher `Dvir` with ID number `000000000`.
+- **Add student**: Navigate to `/logged-in/add-student`, fill name, class, phone number, and submit.
+- **View students**: Visit `/logged-in/students` to see all students fetched from SQLite.
+- **Edit students**: On `/logged-in/students`, edit any field in the floating forms and save to update the database row.
+- **Logout**: Use the header “Log out” button.
 
-```sh
-# recreate this project
-pnpm dlx sv create --template minimal --types ts --install pnpm ./
-```
+## Database
+- Schema lives in `src/lib/server/db/schema.ts`, database file is `local.db`.
+- Drizzle Studio: run `pnpm db:studio` to open a UI; use it to add more teachers if needed.
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```sh
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```sh
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+## Notes
+- Only one teacher is seeded by default: `Dvir` / `000000000`; add more via Drizzle Studio or migrations.
+- Session cookie key: `teacher_session`, stored alongside `teacher_sessions` table entries.
