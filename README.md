@@ -240,7 +240,7 @@ header provides:
 - `POST /registered/teacher/classroom/[classroomId]/rename` - updates classroom
   name and redirects back to the current classroom subpage.
 
-## Data Model (High-Level)
+## Data Model
 
 Main tables:
 
