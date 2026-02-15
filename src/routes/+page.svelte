@@ -69,7 +69,6 @@
             >
           </div>
           <div class="flex justify-end gap-2">
-            <Button color="light" href="/">Back</Button>
             <Button color="blue" type="submit">Submit</Button>
           </div>
         </Card>
@@ -98,7 +97,6 @@
             Password
           </FloatingLabelInput>
           <div class="flex justify-end gap-2">
-            <Button color="light" href="/">Back</Button>
             <Button color="blue" type="submit">Submit</Button>
           </div>
         </Card>
